@@ -1,0 +1,84 @@
+/* General Styling */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  /* Ensure the gradient applies to the full height */
+  font-family: Arial, sans-serif;
+  background: rgb(181, 91, 241);
+  background: linear-gradient(90deg, rgba(181, 91, 241, 1) 0%, rgba(108, 180, 182, 1) 51%, rgba(0, 185, 255, 1) 74%);
+}
+
+.container {
+  width: 80%;
+  margin: 20px auto;
+  background: rgb(181, 91, 241);
+  background: linear-gradient(90deg, rgba(181, 91, 241, 1) 0%, rgba(108, 180, 182, 1) 51%, rgba(0, 185, 255, 1) 74%);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.cart {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.cart h2 {
+  margin-top: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item span {
+  font-size: 16px;
+}
+
+.remove-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #c82333;
+}
+
+.back-button {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.proceed-btn {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+}

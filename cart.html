@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to Your collection</h1>
+
+        <div class="cart">
+            <h2>Check Out Now</h2>
+            <div id="cartItems"></div>
+            <p><strong>Total Price:</strong> Rs. <span id="totalPrice">0</span></p>
+        </div>
+        <a href="checkout.php" class="back-button">Proceed to Checkout</a>
+        <a href="index.html" class="back-button">Continue Shopping</a>
+    </div>
+
+    
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsDiv = document.getElementById('cartItems');
+        const totalPriceSpan = document.getElementById('totalPrice');
+
+        function renderCart() {
+            cartItemsDiv.innerHTML = ''; 
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p>Your cart is empty</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('cart-item');
+                    itemDiv.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>Rs. ${item.price} x ${item.quantity}</p>
+                    <button class="remove-btn" data-index="${index}">Remove</button>
+                `;
+                    cartItemsDiv.appendChild(itemDiv);
+                    totalPrice += item.price * item.quantity;
+                });
+            }
+
+            totalPriceSpan.textContent = totalPrice.toFixed(2);
+            localStorage.setItem('cart', JSON.stringify(cart)); 
+        }
+
+        cartItemsDiv.addEventListener('click', (event) => {
+            if (event.target.classList.contains('remove-btn')) {
+                const itemIndex = event.target.getAttribute('data-index');
+                cart.splice(itemIndex, 1); 
+                renderCart(); 
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            addToCartButtons.forEach((button) => {
+                if (!button.classList.contains('bound')) {
+                    button.addEventListener('click', (event) => {
+                        const productId = button.getAttribute('data-id');
+                        const productName = button.getAttribute('data-name');
+                        const productPrice = parseFloat(button.getAttribute('data-price'));
+
+                        const existingProductIndex = cart.findIndex((item) => item.id === productId);
+                        if (existingProductIndex !== -1) {
+                            cart[existingProductIndex].quantity += 1;
+                        } else {
+                            cart.push({
+                                id: productId,
+                                name: productName,
+                                price: productPrice,
+                                quantity: 0
+                            });
+                        }
+
+                        localStorage.setItem('cart', JSON.stringify(cart)); 
+                        alert(`${productName} has been added to your cart!`);
+                    });
+                    button.classList.add('bound'); 
+                }
+            });
+        });
+
+        renderCart();
+    </script>
+
+</body>
+
+</html>

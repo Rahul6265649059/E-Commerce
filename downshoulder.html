@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Website</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: rgb(131, 58, 180);
+            background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(182, 108, 133, 1) 22%, rgba(252, 176, 69, 1) 74%);
+            background-size: cover;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar .nav-links a {
+            margin: 0 10px;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: solid;
+            font-size: 16px;
+        }
+
+        .cart a {
+            font-size: 18px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 10px;
+            background: rgb(131, 58, 180);
+            background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(182, 108, 133, 1) 22%, rgba(252, 176, 69, 1) 74%);
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            margin-bottom: 15px;
+            color: black;
+        }
+
+        .hero p {
+            font-size: 35px;
+            margin-bottom: 30px;
+            color: black;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: rgb(119, 83, 4);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: #ffe3d7;
+        }
+
+        .logo-strip {
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            position: relative;
+            background-color: white;
+            align-items: center;
+            display: flex;
+        }
+
+        .logo-container {
+            display: flex;
+            animation: moveRight 15s linear infinite;
+        }
+
+        .logo-container img {
+            height: 50px;
+            margin-right: 80px;
+        }
+
+        @keyframes moveRight {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            background-color: #fff;
+            margin: 10px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+        }
+
+        .product-card h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .product-card button {
+            background-color: #ff7e5f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .product-card button:hover {
+            background-color: #feb47b;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .heading {
+            font-size: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left: 55px;
+        }
+
+        .footer {
+            background-color: #ff7e5f;
+            text-align: center;
+            justify-content: center;
+            height: 200px;
+        }
+
+        .footer {
+            background: rgb(131, 58, 180);
+            background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(182, 108, 133, 1) 22%, rgba(252, 176, 69, 1) 74%);
+            color: black;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .footer p {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .email-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .email-form input {
+            padding: 10px;
+            width: 250px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        .email-form button {
+            padding: 10px 20px;
+            background-color: #ff7e5f;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .email-form button:hover {
+            background-color: #feb47b;
+        }
+
+        .new_arrival {
+            display: flex;
+        }
+
+        h4 {
+            font-size: 25px;
+            margin-left: 50px;
+            color: white;
+        }
+
+        .narrival-card {
+            border: 2px solid rgb(235, 227, 227);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            width: 1400px;
+            height: 800px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            background-color: white;
+            margin: 10px;
+            margin-left: 60px;
+        }
+
+        .narrival-card img {
+            width: 310px;
+            height: auto;
+            margin: 40px;
+        }
+
+        .narrival-card h2 {
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        .narrival-card p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .narrival-card button {
+            background-color: #ff7e5f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .narrival-card button:hover {
+            background-color: #feb47b;
+        }
+    </style>
+
+    <SCRIpt src="script.js"></SCRIpt>
+
+    <!-- NAVIGATION BAR -->
+
+    <header class="navbar">
+        <div class="logo">Tee-Trend</div>
+        <div class="nav-links">
+            <ul>
+                <a href="index.html">Home page</a>
+                <a href="downshoulder.html">Downshoulder</a>
+                <a href="formal.html">Formal</a>
+                <a href="roundneck.html">Round Neck</a>
+                <a href="fullsleeve.html">Full Sleeve</a>
+            </ul>
+        </div>
+        <div class="cart"><a href="cart.html">🛒Cart</a></div>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Downshoulder Wardrobe</h1>
+        <p>Find trendy & Stylish Downshoulder Tees</p>
+        <button>
+            <a href="login.php" style="text-decoration: none; color: inherit;">Shop Now</a>
+        </button>
+    </section>
+
+
+    <!-- LOGO STRIP -->
+
+    <div class="logo-strip">
+        <div class="logo-container">
+            <img src="./STRIPMEDIA/banner-1.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-2.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-3.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-4.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-5.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-6.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-7.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-8.png" alt="Brand 1" />
+        </div>
+    </div>
+
+    <h6 class="heading">Downshoulder &#x2192</h6>
+
+    <div class="product-container">
+
+        <!-- DOWNSHOULDER TSHIRTS -->
+
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder1.jpeg" alt="Product 1">
+            <h3>KAKASHI HATAKE</h3>
+            <p id="price">Rs. 399</p>
+            <button class="add-to-cart-btn" data-id="1" data-name="Product 1" data-price="399"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder2.jpeg" alt="Product 2">
+            <h3>NEVER BACK DOWN </h3>
+            <p>Rs. 399</p>
+            <button class="add-to-cart-btn" data-id="2" data-name="Product 2" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder3.jpeg" alt="Product 3">
+            <h3>EYEBOGL</h3>
+            <p>Rs. 299</p>
+            <button class="add-to-cart-btn" data-id="3" data-name="Product 3" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder4.jpeg" alt="Product 4">
+            <h3>ATHL COFFEE</h3>
+            <p>Rs. 249</p>
+            <button class="add-to-cart-btn" data-id="4" data-name="Product 4" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder5.jpeg" alt="Product 5">
+            <h3>OLDTIMER</h3>
+            <p>Rs. 449</p>
+            <button class="add-to-cart-btn" data-id="5" data-name="Product 5" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder6.jpeg" alt="Product 1">
+            <h3>COFFEE</h3>
+            <p id="price">Rs. 399</p>
+            <button class="add-to-cart-btn" data-id="1" data-name="Product 1" data-price="399"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder7.jpg" alt="Product 2">
+            <h3>VINTAGE 1964</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="2" data-name="Product 2" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder8.jpeg" alt="Product 3">
+            <h3>EYEBOGL</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="3" data-name="Product 3" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder9.jpeg" alt="Product 4">
+            <h3>PANDA BLACK</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="4" data-name="Product 4" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder10.jpeg" alt="Product 5">
+            <h3>ATHLETIC</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="5" data-name="Product 5" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder11.jpeg" alt="Product 1">
+            <h3>FLAMINGO STRIPPED</h3>
+            <p id="price">Rs. 399</p>
+            <button class="add-to-cart-btn" data-id="1" data-name="Product 1" data-price="399"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder12.jpeg" alt="Product 2">
+            <h3>LONSDALE</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="2" data-name="Product 2" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder13.jpeg" alt="Product 3">
+            <h3>PINK</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="3" data-name="Product 3" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder14.jpeg" alt="Product 4">
+            <h3>BREAK RULES</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="4" data-name="Product 4" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder15.jpeg" alt="Product 5">
+            <h3>BLACK</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="5" data-name="Product 5" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder16.jpeg" alt="Product 1">
+            <h3>PHOENIX</h3>
+            <p id="price">Rs. 399</p>
+            <button class="add-to-cart-btn" data-id="1" data-name="Product 1" data-price="399"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder17.jpeg" alt="Product 2">
+            <h3>MONEY MONEY</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="2" data-name="Product 2" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder18.jpeg" alt="Product 3">
+            <h3>EYES</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="3" data-name="Product 3" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder19.jpeg" alt="Product 4">
+            <h3>BLACK ABSTRACT</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="4" data-name="Product 4" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder20.jpeg" alt="Product 5">
+            <h3>RIVERDALE COFFEE</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="5" data-name="Product 5" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+        <p>Thank you for visiting Tee-Trend! <br>Stay updated with our latest collections and offers</p>
+        <form class="email-form">
+            <input type="email" placeholder="Enter Phone Number" required>
+            <button type="submit">Submit</button>
+        </form>
+    </footer>
+
+
+
+    <!-- JAVASCRIPT SECTION -->
+
+    <script>
+        function handleAddToCart(event) {
+            const button = event.target;
+
+            const productId = button.getAttribute('data-id');
+            const productName = button.getAttribute('data-name');
+            const productPrice = parseFloat(button.getAttribute('data-price'));
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            const existingProductIndex = cart.findIndex(item => item.id === productId);
+
+            if (existingProductIndex !== -1) {
+                cart[existingProductIndex].quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1 
+                });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            alert(`${productName} has been added to your cart!`);
+        }
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background : url(website\ bg.jpeg)no-repeat center center fixed;
+    background-size: cover;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.navbar .nav-links a {
+    margin: 0 10px;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration :solid;
+    font-size: 16px;
+}
+
+.cart a {
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+}
+
+.hero {
+    text-align: center;
+    padding: 20px 10px;
+    background: transparent ;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 100px;
+    margin-bottom: 15px;
+}
+
+.hero p {font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.hero button {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #ff7e5f;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background-color: #ffe3d7;
+}
+
+/* Container for the logo strip */
+.logo-strip {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    background-color: wheat; /* Background color */
+    align-items: center;
+    display: flex;
+  }
+  
+  /* The container holding the logos */
+  .logo-container {
+    display: flex;
+    animation: moveRight 15s linear infinite; /* Adjust speed here */
+  }
+  
+  /* Style each logo */
+  .logo-container img {
+    height: 50px; /* Adjust size */
+    margin-right: 80px; /* Spacing between logos */
+  }
+  
+  /* Animation to move logos from left to right */
+  @keyframes moveRight {
+    0% {
+      transform: translateX(0); /* Start from the left */
+    }
+    100% {
+      transform: translateX(-50%); /* Move the logos left to reset */
+    }
+  }
+  
+/* PRODUCT CARDS */
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    background-color: #fff;
+    margin: 10px;
+}
+
+.product-card img {
+    width:100%;
+    height: auto;
+}
+
+.product-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.product-card p {
+    font-size: 16px;
+    color: #333;
+}
+
+.product-card button {
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.product-card button:hover {
+    background-color: #feb47b;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* FOOTER SECTION */
+.footer{
+    background-color: #ff7e5f;
+    text-align: center;
+    justify-content: center;
+    height:200px ;
+}
+
+.footer {
+    background-color: linen;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.footer p {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.email-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-form input {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.email-form button {
+    padding: 10px 20px;
+    background-color: #ff7e5f;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.email-form button:hover {
+    background-color: #feb47b;
+}
+
+.new_arrival{
+    display: flex;
+}
+
+h4{
+    font-size: 25px;
+    margin-left: 50px;
+    color: white;
+}
+
+.narrival-card {
+    border: 2px solid rgb(235, 227, 227);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    width: 1400px;
+    height: 800px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    background-color: white;
+    margin: 10px;
+    margin-left: 60px;
+}
+
+.narrival-card img{
+    width: 310px;
+    height: auto;
+    margin: 40px;
+}
+
+.narrival-card h2 {
+    font-size: 18px;
+    margin: 10px ;
+}
+
+.narrival-card p {
+    font-size: 16px;
+    color: #333;
+}
+
+.narrival-card button {
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.narrival-card button:hover {
+    background-color: #feb47b;
+}

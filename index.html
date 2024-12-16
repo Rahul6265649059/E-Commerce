@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Website</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: rgb(181, 91, 241);
+            background: linear-gradient(90deg, rgba(181, 91, 241, 1) 0%, rgba(108, 180, 182, 1) 51%, rgba(0, 185, 255, 1) 74%);
+            background-size: cover;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar .nav-links a {
+            margin: 0 10px;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: solid;
+            font-size: 16px;
+        }
+
+        .cart a {
+            font-size: 18px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 20px 10px;
+            background: transparent;
+        }
+
+        .hero h1 {
+            font-size: 100px;
+            margin-bottom: 15px;
+            color: black;
+        }
+
+        .hero p {
+            font-size: 35px;
+            margin-bottom: 30px;
+            color: black;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: black;
+            background-color: WHITE;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: #ffe3d7;
+        }
+
+        /* Container for the logo strip */
+        .logo-strip {
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            position: relative;
+            background-color: white;
+            /* Background color */
+            align-items: center;
+            display: flex;
+        }
+
+        /* The container holding the logos */
+        .logo-container {
+            display: flex;
+            animation: moveRight 15s linear infinite;
+            /* Adjust speed here */
+        }
+
+        /* Style each logo */
+        .logo-container img {
+            height: 50px;
+            /* Adjust size */
+            margin-right: 80px;
+            /* Spacing between logos */
+        }
+
+        /* Animation to move logos from left to right */
+        @keyframes moveRight {
+            0% {
+                transform: translateX(0);
+                /* Start from the left */
+            }
+
+            100% {
+                transform: translateX(-50%);
+                /* Move the logos left to reset */
+            }
+        }
+
+        /* PRODUCT CARDS */
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            background-color: #fff;
+            margin: 10px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+        }
+
+        .product-card h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .product-card button {
+            background-color: #ff7e5f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .product-card button:hover {
+            background-color: #feb47b;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .heading {
+            font-size: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left: 55px;
+            margin-top: 20PX;
+        }
+
+        /* FOOTER SECTION */
+        .footer {
+            background: rgb(181, 91, 241);
+            background: linear-gradient(90deg, rgba(181, 91, 241, 1) 0%, rgba(108, 180, 182, 1) 51%, rgba(0, 185, 255, 1) 74%);
+            background-size: cover;
+            text-align: center;
+            justify-content: center;
+            height: 200px;
+        }
+
+        .footer {
+            background-color: linen;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .footer p {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .email-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .email-form input {
+            padding: 10px;
+            width: 250px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        .email-form button {
+            padding: 10px 20px;
+            background-color: #ff7e5f;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .email-form button:hover {
+            background-color: #feb47b;
+        }
+
+        .new_arrival {
+            display: flex;
+        }
+
+        h4 {
+            font-size: 25px;
+            margin-left: 50px;
+            color: white;
+        }
+
+    </style>
+
+    <SCRIpt src="script.js"></SCRIpt>
+
+    <!-- NAVIGATION BAR -->
+
+    <header class="navbar">
+        <div class="logo">Tee-Trend</div>
+        <div class="nav-links">
+            <ul>
+                <a href="downshoulder.html">Downshoulder</a>
+                <a href="formal.html">Formal</a>
+                <a href="roundneck.html">Round Neck</a>
+                <a href="fullsleeve.html">Full Sleeve</a>
+            </ul>
+        </div>
+        <div class="cart"><a href="cart.html">🛒Cart</a></div>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Tee-Trend</h1>
+        <p>Your one-stop shop for trendy and affordable clothing</p>
+        <button>
+            <a href="login.php" style="text-decoration: none; color: inherit;">Login</a>
+        </button>
+    </section>
+
+
+    <!-- LOGO STRIP -->
+
+    <div class="logo-strip">
+        <div class="logo-container">
+            <img src="./STRIPMEDIA/banner-1.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-2.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-3.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-4.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-5.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-6.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-7.png" alt="Brand 1" />
+            <img src="./STRIPMEDIA/banner-8.png" alt="Brand 1" />
+        </div>
+    </div>
+
+    <h6 class="heading">DOWNSHOULDER &#x2192</h6>
+
+    <div class="product-container">
+
+        <!-- DOWNSHOULDER TSHIRTS -->
+
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder1.jpeg" alt="KAKASHI HATAKE">
+            <h3>KAKASHI HATAKE</h3>
+            <p id="price">Rs. 399</p>
+            <button class="add-to-cart-btn" data-id="1" data-name="KAKASHI HATAKE" data-price="399"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder2.jpeg" alt="NEVER BACK DOWN">
+            <h3>NEVER BACK DOWN </h3>
+            <p>Rs. 399</p>
+            <button class="add-to-cart-btn" data-id="2" data-name="NEVER BACK DOWN" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder3.jpeg" alt="EYEBOGL">
+            <h3>EYEBOGL</h3>
+            <p>Rs. 299</p>
+            <button class="add-to-cart-btn" data-id="3" data-name="EYEBOGL" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder4.jpeg" alt="ATHL COFFEE">
+            <h3>ATHL COFFEE</h3>
+            <p>Rs. 249</p>
+            <button class="add-to-cart-btn" data-id="4" data-name="ATHL COFFEE" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/downshoulder/downshoulder5.jpeg" alt="OLDTIMER">
+            <h3>OLDTIMER</h3>
+            <p>Rs. 449</p>
+            <button class="add-to-cart-btn" data-id="5" data-name="OLDTIMER" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+    </div>
+
+
+    <!-- FORMAL TSHIRTS -->
+    <h6 class="heading">FORMAL &#x2192</h6>
+
+    <div class="product-container">
+        <div class="product-card">
+            <img src="./ASSET/formal/formal1.jpeg" alt="NAVY BLUE RED STRIP">
+            <h3>NAVY BLUE RED STRIP</h3>
+            <p id="price">Rs. 299</p>
+            <button class="add-to-cart-btn" data-id="1" data-name="NAVY BLUE RED STRIP" data-price="399"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/formal/formal2.jpeg" alt="WHITE COLLOR BLACK STRIP">
+            <h3>WHITE COLLOR BLACK STRIP</h3>
+            <p>Rs. 349</p>
+            <button class="add-to-cart-btn" data-id="2" data-name="WHITE COLLOR BLACK STRIP" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/formal/formal3.jpeg" alt="SMOKE BLUE">
+            <h3>SMOKE BLUE</h3>
+            <p>Rs. 399</p>
+            <button class="add-to-cart-btn" data-id="3" data-name="SMOKE BLUE" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/formal/formal4.jpeg" alt="WHITE">
+            <h3>WHITE</h3>
+            <p>Rs. 399</p>
+            <button class="add-to-cart-btn" data-id="4" data-name="WHITE" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/formal/formal5.jpeg" alt="MULTICOLOR">
+            <h3>MULTICOLOR</h3>
+            <p>Rs. 299</p>
+            <button class="add-to-cart-btn" data-id="5" data-name="MULTICOLOR" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+
+    </div>
+
+
+    <!-- FULLSLEEVE TSHIRTS -->
+    <h6 class="heading">FULL SLEEVE &#x2192</h6>
+
+    <div class="product-container">
+        <div class="product-card">
+            <img src="./ASSET/fullsleeve/fullsleeve1.jpeg" alt="FLAMINGO">
+            <h3>FLAMINGO</h3>
+            <p id="price">Rs. 399</p>
+            <button class="add-to-cart-btn" data-id="1" data-name="FLAMINGO" data-price="399"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/fullsleeve/fullsleeve2.jpeg" alt="GRAY">
+            <h3>GRAY</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="2" data-name="GRAY" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/fullsleeve/fullsleeve3.jpeg" alt="RED">
+            <h3>RED</h3>
+            <p>Rs. 299</p>
+            <button class="add-to-cart-btn" data-id="3" data-name="RED" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/fullsleeve/fullsleeve4.jpeg" alt="MULTICOLOR">
+            <h3>MULTICOLOR</h3>
+            <p>Rs. 349</p>
+            <button class="add-to-cart-btn" data-id="4" data-name="MULTICOLOR" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/fullsleeve/fullsleeve5.jpeg" alt="MULTICOLOR">
+            <h3>MULTICOLOR</h3>
+            <p>Rs. 249</p>
+            <button class="add-to-cart-btn" data-id="5" data-name="MULTICOLOR" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- ROUNDNECK TSHIRTS -->
+    <h6 class="heading">ROUND NECK &#x2192</h6>
+
+    <div class="product-container">
+        <div class="product-card">
+            <img src="./ASSET/roundneck/roundneck1.jpeg" alt="CYAN">
+            <h3>CYAN</h3>
+            <p id="price">Rs. 399</p>
+            <button class="add-to-cart-btn" data-id="1" data-name="CYAN" data-price="399"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/roundneck/roundneck2.jpeg" alt="WHITE">
+            <h3>WHITE</h3>
+            <p>Rs. 299</p>
+            <button class="add-to-cart-btn" data-id="2" data-name="WHITE" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/roundneck/roundneck3.jpeg" alt="OM PRINTED">
+            <h3>OM PRINTED</h3>
+            <p>Rs. 449</p>
+            <button class="add-to-cart-btn" data-id="3" data-name="OM PRINTED" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/roundneck/roundneck4.jpeg" alt="WHERE'S THE FOOD">
+            <h3>WHERE'S THE FOOD</h3>
+            <p>Rs. 499</p>
+            <button class="add-to-cart-btn" data-id="4" data-name="WHERE'S THE FOOD" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="./ASSET/roundneck/roundneck5.jpeg" alt="STRIPPED">
+            <h3>STRIPPED</h3>
+            <p>Rs. 199</p>
+            <button class="add-to-cart-btn" data-id="5" data-name="STRIPPED" data-price="499"
+                onclick="handleAddToCart(event)">Add to Cart</button>
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+        <p>Thank you for visiting Tee-Trend! <br>Stay updated with our latest collections and offers</p>
+        <form class="email-form">
+            <input type="email" placeholder="Enter Phone Number" required>
+            <button type="submit">Submit</button>
+        </form>
+    </footer>
+
+
+
+    <!-- JAVASCRIPT SECTION -->
+
+    <script>
+        function handleAddToCart(event) {
+            const button = event.target;
+
+            // Get product details from the button attributes
+            const productId = button.getAttribute('data-id');
+            const productName = button.getAttribute('data-name');
+            const productPrice = parseFloat(button.getAttribute('data-price'));
+
+            // Retrieve the cart from local storage or initialize it if it doesn't exist
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Check if the product is already in the cart
+            const existingProductIndex = cart.findIndex(item => item.id === productId);
+
+            if (existingProductIndex !== -1) {
+                // Update quantity if product already exists in cart
+                cart[existingProductIndex].quantity += 1;
+            } else {
+                // Add new product to the cart with quantity = 1
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1 // Correctly set quantity to 1 when first adding
+                });
+            }
+
+            // Save the updated cart to local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Optional: Provide feedback to the user
+            alert(`${productName} has been added to your cart!`);
+        }
+
+
+        // // JAVASCRIPT SECTION
+        //     // Attach the click event listener to all "Add to Cart" buttons
+        //     document.addEventListener('DOMContentLoaded', () => {
+        //         const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        //         addToCartButtons.forEach(button => {
+        //             // Check if the event listener is already attached to avoid duplicate calls
+        //             if (!button.classList.contains('bound')) {
+        //                 button.addEventListener('click', handleAddToCart);
+        //                 button.classList.add('bound'); // Mark as bound
+        //             }
+        //         });
+        //     });
+    </script>
+
+
+
+</body>
+
+</html>
