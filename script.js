@@ -16,7 +16,7 @@ function handleAddToCart(event) {
 
     // Add product to cart
     cart.push(product);
-    alert(`${productName} has been added to the cart!`);
+    alert(`Added to the cart!`);
 
     // Optionally, update cart badge or display the cart items
     console.log(cart);  // For testing purposes
