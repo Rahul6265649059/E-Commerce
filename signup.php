@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($conn->query($sql) === TRUE) {
         echo "Registration successful!";
         // Redirect to login page or homepage after successful registration
-        header("Location: login.php");
+        header("Location: login.html");
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -159,7 +159,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </form>
 
             <div class="login-link">
-                <p>Already have an account? <a href="login.php">Login</a></p>
+                <p>Already have an account? <a href="login.html">Login</a></p>
             </div>
         </div>
     </section>
